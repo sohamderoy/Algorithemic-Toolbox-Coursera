@@ -1,21 +1,17 @@
-#program to find the maximum way to distribute prizes
+#program to find the maximum way to distribute prizes (efficient process)
 import sys
 n=int(input())
-(rem, l)=(int(), [0])
-flag=True
-i=1
-while rem!=0 or flag==True:
-    l.append(i)
-    rem=n-i
-    n=n-i
-    i=i+1
-    if rem in l:
-        l[-1]=l[-1]+rem
-        flag=False
-        break
-    #print(l)
-l.pop(0)
-print(len(l))
-for _ in range (len(l)):
-    print(l[_], end=' ')
-
+w=[]
+k=n
+l=1
+while (k>0):
+    if (k<=2*l):
+        w.append(k)
+        k-=k
+    else:
+        w.append(l)
+        k-=l
+    l+=1
+print(len(w))
+for _ in w:
+    print(_, end=' ')
