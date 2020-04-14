@@ -5,34 +5,41 @@ d=int(input())
 m=int(input())
 n=int(input())
 s=list(map(int, input().split()))
-start=-1
-sum=0
 count=0
 s1=s
 s1.append(d)
-#print(s1)
-s2=[]
-s2.append(s1[0])
+#print(s1,1)
+s3=[0]
+s3.append(s1[0])
 for i in range (1,len(s1)):
-    s2.append(s1[i]-s1[i-1])
-#print(s2)
+    s3.append(s1[i]-s1[i-1])
+#print(s2,2)
+#s2.append(-1)
 flag=False
-for i in s2:
+for i in s3:
     if i>m:
         flag=True
         break
+#print(flag,3)
+refill=0
 if m>d:
     print(0)
     sys.exit()
 elif flag==True:
     print(-1)
     sys.exit()
-else:
-    while (d>0):
-        for i in range (start, n):
-            if s[i+1]-start>m:
-                start=i
-                count=count+1
-                d=d-s[i]
+elif flag==False and m<d:
+    start=0
+    i=start+2
+    while(i<=len(s2)):
+        if (sum(s2[start+1:i])<m):
+            i+=1
+            if (s2[i]==-1):
                 break
-print(count-1)
+        elif (sum(s2[start+1:i])>m):
+            start=i-2
+            refill=refill+1
+            if s2[i]==-1:
+                break
+print(refill+)
+    
