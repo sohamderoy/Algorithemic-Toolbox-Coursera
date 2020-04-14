@@ -2,15 +2,14 @@
 import sys
 n=int(input())
 w=[]
-k=n
 l=1
-while (k>0):
-    if (k<=2*l):
-        w.append(k)
-        k-=k
+while (n>0):
+    if (n<=2*l):
+        w.append(n)
+        n-=n
     else:
         w.append(l)
-        k-=l
+        n-=l
     l+=1
 print(len(w))
 for _ in w:
